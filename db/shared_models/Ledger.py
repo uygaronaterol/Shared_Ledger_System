@@ -17,7 +17,7 @@ class Ledger(Base):
     id = Column(Integer, primary_key=True, index=True)
     operation = Column(SQLAlchemyEnum(BaseLedgerOperation), nullable=False)
     amount = Column(Integer, nullable=False)
-    nonce = Column(String, nullable=False)
+    nonce = Column(String, unique=True, nullable=False)
     owner_id = Column(String, nullable=False)
     created_on = Column(DateTime, default=datetime.utcnow, nullable=False)
 

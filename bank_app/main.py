@@ -1,10 +1,6 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Optional
-import sys
-import os
-from bank_app.controllers import controller
+from bank_app.controllers.controller import router
 
 app = FastAPI()
 
-app.include_router(controller.router, prefix="/bank", tags=["Bank Operations"])
+app.include_router(router, prefix="/bank", tags=["Bank Operations"])
